@@ -1,7 +1,8 @@
-﻿using SmartX.API.Models;
-using System.IO;
+﻿
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.IO;
+using SmartX.Client.Models;
 
 namespace SmartX.Client.Services
 {
@@ -52,12 +53,12 @@ namespace SmartX.Client.Services
             return telemetry ?? new List<TelemetryPacket<bool>>();
         }
 
-        public async Task<List<Alert>> GetAlertsAsync()
+        public async Task<List<Alerts>> GetAlertsAsync()
         {
             var alerts = await _httpClient
-                .GetFromJsonAsync<List<Alert>>("api/Alerts");
+                .GetFromJsonAsync<List<Alerts>>("api/Alerts");
 
-            return alerts ?? new List<Alert>();
+            return alerts ?? new List<Alerts>();
         }
 
         public async Task<List<TelemetryPacket<float>>> GetSoilMoistureHistoryAsync(string? deviceIdentifier = null)
