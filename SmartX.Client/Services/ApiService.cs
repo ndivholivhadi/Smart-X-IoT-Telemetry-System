@@ -14,7 +14,7 @@ namespace SmartX.Client.Services
         {
             _httpClient = new HttpClient
             {
-                BaseAddress = new Uri("http://localhost:5090")
+                BaseAddress = new Uri("http://localhost:5118")
             };
         }
 
